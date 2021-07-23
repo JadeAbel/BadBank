@@ -2,7 +2,7 @@ function NavBar() {
   return (
     <>
       <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-light bg-success">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               BAD BANK
