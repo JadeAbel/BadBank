@@ -16,9 +16,6 @@ function NavBar() {
             <a className="navbar-brand" href="#/login">
               LOGIN
             </a>
-            <a className="navbar-brand" href="#/balance">
-              BALANCE
-            </a>
             <a className="navbar-brand" href="#CreateAccount">
               CREATE ACCOUNT
             </a>
