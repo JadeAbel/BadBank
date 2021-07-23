@@ -34,7 +34,7 @@ function CreateAccount() {
   return (
     <div className="d-flex p-4">
       <Card
-        bgcolor="primary"
+        bgcolor="success"
         header="CREATE ACCOUNT"
         status={status}
         body={

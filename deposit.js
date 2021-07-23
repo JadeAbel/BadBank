@@ -28,7 +28,7 @@ function Deposit() {
   return (
     <div className="d-flex p-4">
       <Card
-        bgcolor="primary"
+        bgcolor="success"
         header="DEPOSIT"
         title="Balance:"
         status={status}

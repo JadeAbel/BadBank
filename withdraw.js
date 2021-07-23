@@ -28,7 +28,7 @@ function Withdraw() {
   return (
     <div className="d-flex p-4">
       <Card
-        bgcolor="primary"
+        bgcolor="success"
         header="WITHDRAW"
         title="Balance:"
         status={status}
