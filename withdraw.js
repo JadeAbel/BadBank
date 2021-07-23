@@ -26,42 +26,48 @@ function Withdraw() {
   }
 
   return (
-    <Card
-      bgcolor="primary"
-      header="WITHDRAW"
-      title="Balance:"
-      status={status}
-      body={
-        show ? (
-          <>
-            WITHDRAW AMOUNT
-            <br />
-            <input
-              type="input"
-              className="form-control"
-              id="withdraw"
-              placeholder="WITHDRAW AMOUNT"
-              value={withdraw}
-              onChange={(e) => setWithdraw(e.currentTarget.value)}
-            />
-            <br />
-            <button
-              type="submit"
-              className="btn btn-light"
-              onClick={handleCreate}
-            >
-              WITHDRAW
-            </button>
-          </>
-        ) : (
-          <>
-            <h5>SUCCESS</h5>
-            <button type="submit" className="btn btn-light" onClick={clearForm}>
-              WITHDRAW ADDITIONAL FUNDS
-            </button>
-          </>
-        )
-      }
-    />
+    <div className="d-flex p-4">
+      <Card
+        bgcolor="primary"
+        header="WITHDRAW"
+        title="Balance:"
+        status={status}
+        body={
+          show ? (
+            <>
+              WITHDRAW AMOUNT
+              <br />
+              <input
+                type="input"
+                className="form-control"
+                id="withdraw"
+                placeholder="WITHDRAW AMOUNT"
+                value={withdraw}
+                onChange={(e) => setWithdraw(e.currentTarget.value)}
+              />
+              <br />
+              <button
+                type="submit"
+                className="btn btn-light"
+                onClick={handleCreate}
+              >
+                WITHDRAW
+              </button>
+            </>
+          ) : (
+            <>
+              <h5>SUCCESS</h5>
+              <button
+                type="submit"
+                className="btn btn-light"
+                onClick={clearForm}
+              >
+                WITHDRAW ADDITIONAL FUNDS
+              </button>
+            </>
+          )
+        }
+      />
+    </div>
   );
 }
