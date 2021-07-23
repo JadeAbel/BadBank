@@ -2,7 +2,7 @@ function Home() {
   return (
     <div className="d-flex p-4">
       <Card
-        bgcolor="primary"
+        bgcolor="success"
         txtcolor="white"
         header="BAD BANK LANDING PAGE"
         title="WELCOME TO THE BANK"
