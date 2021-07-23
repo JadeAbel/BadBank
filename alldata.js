@@ -19,7 +19,25 @@ function AllData() {
         title="WELCOME TO THE BANK"
         text="'Here, you can pretend to be a trillionaire.'"
         body={
-          <img src="bank.png" className="img-fluid" alt="Responsive image" />
+          <div>
+            <ul className="list-group list-group-horizontal">
+              <li className="list-group-item">Name</li>
+              <li className="list-group-item">Email</li>
+              <li className="list-group-item">Password</li>
+            </ul>
+
+            <ul className="list-group list-group-horizontal-sm">
+              <li className="list-group-item"> </li>
+              <li className="list-group-item"> </li>
+              <li className="list-group-item"> </li>
+            </ul>
+
+            <ul className="list-group list-group-horizontal-sm">
+              <li className="list-group-item"> </li>
+              <li className="list-group-item"> </li>
+              <li className="list-group-item"> </li>
+            </ul>
+          </div>
         }
       />
     </div>
