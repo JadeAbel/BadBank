@@ -77,7 +77,7 @@ function CreateAccount() {
               className="btn btn-light"
               onClick={handleCreate}
             >
-              CREATE ACCOUNT
+              SUBMIT
             </button>
           </>
         ) : (
