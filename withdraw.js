@@ -1,7 +1,7 @@
 function Withdraw() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
-  const [withdraw, setWithdraw] = React.useState("");
+  const [withdrawAmount, setWithdrawAmount] = React.useState("");
   const ctx = React.useContext(UserContext);
 
   function validate(field, label) {
@@ -13,24 +13,36 @@ function Withdraw() {
     return true;
   }
 
-  function handleCreate() {
-    console.log(withdraw);
-    if (!validate(withdraw, "withdraw")) return;
-    ctx.users.push({ withdraw, balance: 100 });
+  function handleWithdraw(e) {
+    if (!validate(withdrawAmount, "withdraw")) return;
+    const newWithdraw = parseInt(withdrawAmount / -1, 10);
+    console.log("less by", newWithdraw, ctx);
+    if (!ctx.balance) {
+      ctx.balance = newWithdraw;
+    } else {
+      ctx.balance = ctx.balance + newWithdraw;
+    }
     setShow(false);
   }
 
   function clearForm() {
-    setWithdraw("");
+    setWithdrawAmount("");
     setShow(true);
   }
+  // React.useEffect(() => {
+  //   console.log("yes", ctx);
+  // }, []);
+  // function clearForm() {
+  //   setWithdrawAmount("");
+  //   setShow(true);
+  // }
 
   return (
     <div className="d-flex p-4">
       <Card
         bgcolor="success"
         header="WITHDRAW"
-        title="Balance:"
+        title={`Balance: ${ctx.balance || 0}`}
         status={status}
         body={
           show ? (
@@ -42,14 +54,14 @@ function Withdraw() {
                 className="form-control"
                 id="withdraw"
                 placeholder="WITHDRAW AMOUNT"
-                value={withdraw}
-                onChange={(e) => setWithdraw(e.currentTarget.value)}
+                value={withdrawAmount}
+                onChange={(e) => setWithdrawAmount(e.currentTarget.value)}
               />
               <br />
               <button
                 type="submit"
                 className="btn btn-light"
-                onClick={handleCreate}
+                onClick={handleWithdraw}
               >
                 WITHDRAW
               </button>
