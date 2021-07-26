@@ -29,13 +29,6 @@ function Withdraw() {
     setWithdrawAmount("");
     setShow(true);
   }
-  // React.useEffect(() => {
-  //   console.log("yes", ctx);
-  // }, []);
-  // function clearForm() {
-  //   setWithdrawAmount("");
-  //   setShow(true);
-  // }
 
   return (
     <div className="d-flex p-4">
