@@ -1,0 +1,17 @@
+.navbar-brand:hover {
+  color: rgb(221, 222, 251) !important;
+  background-color: rgb(27, 45, 45);
+}
+.navbar-brand:current {
+  color: rgb(27, 45, 45) !important;
+  background-color: rgb(221, 222, 251);
+}
+.navbar-brand:active {
+  color: rgb(155, 153, 60) !important;
+  background-color: rgb(221, 222, 251);
+}
+
+/* .navbar-brand:current {
+  color: rgb(27, 45, 45) !important;
+  background-color: rgb(221, 222, 251);
+} */
