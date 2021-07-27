@@ -18,7 +18,7 @@ function Withdraw() {
     const newWithdraw = parseInt(withdrawAmount / -1, 10);
     console.log("less by", newWithdraw, ctx);
     if (!ctx.balance) {
-      ctx.balance = newWithdraw;
+      ctx.balance = "TRANSACTION FAILED" + " " + newWithdraw;
     } else {
       ctx.balance = ctx.balance + newWithdraw;
     }
@@ -43,7 +43,7 @@ function Withdraw() {
               WITHDRAW AMOUNT
               <br />
               <input
-                type="input"
+                type="number"
                 className="form-control"
                 id="withdraw"
                 placeholder="WITHDRAW AMOUNT"
