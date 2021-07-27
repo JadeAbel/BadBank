@@ -66,6 +66,7 @@ function Withdraw() {
                 type="submit"
                 className="btn btn-light"
                 onClick={handleWithdraw}
+                disabled={!withdrawAmount}
               >
                 WITHDRAW
               </button>
