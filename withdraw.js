@@ -2,6 +2,10 @@ function Withdraw() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
   const [withdrawAmount, setWithdrawAmount] = React.useState("");
+  const [statusMessage, setStatusMessage] = React.useState("SUCCESS");
+  const [buttonText, setButtonText] = React.useState(
+    "WITHDRAW ADDITIONAL FUNDS"
+  );
   const ctx = React.useContext(UserContext);
 
   function validate(field, label) {
@@ -16,10 +20,17 @@ function Withdraw() {
   function handleWithdraw(e) {
     if (!validate(withdrawAmount, "withdraw")) return;
     const newWithdraw = parseInt(withdrawAmount / -1, 10);
+    const newBalance = (ctx.balance || 0) + newWithdraw;
     console.log("less by", newWithdraw, ctx);
-    if (!ctx.balance) {
-      ctx.balance = "TRANSACTION FAILED" + " " + newWithdraw;
+    if (newBalance < 0) {
+      //if newBalance is negative
+      // don't update balance
+      // trigger error messge
+      setButtonText("ATTEMPT DIFFERENT TRANSACTION");
+      setStatusMessage("TRANSACTION FAILED");
     } else {
+      console.log("bal", newWithdraw);
+      // ctx.balance = newBalance
       ctx.balance = ctx.balance + newWithdraw;
     }
     setShow(false);
@@ -61,13 +72,13 @@ function Withdraw() {
             </>
           ) : (
             <>
-              <h5>SUCCESS</h5>
+              <h5>{statusMessage}</h5>
               <button
                 type="submit"
                 className="btn btn-light"
                 onClick={clearForm}
               >
-                WITHDRAW ADDITIONAL FUNDS
+                {buttonText}
               </button>
             </>
           )
