@@ -1,7 +1,7 @@
 function Deposit() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
-  const [deposit, setDeposit] = React.useState("");
+  const [depositAmount, setDepositAmount] = React.useState("");
   const ctx = React.useContext(UserContext);
 
   function validate(field, label) {
@@ -13,15 +13,29 @@ function Deposit() {
     return true;
   }
 
-  function handleCreate() {
-    console.log(deposit);
-    if (!validate(deposit, "deposit")) return;
-    ctx.users.push({ deposit, balance: 100 });
+  function handleDeposit(e) {
+    console.log("something", depositAmount);
+    if (!validate(depositAmount, "deposit")) return;
+    const newDeposit = parseInt(depositAmount, 10);
+    if (newDeposit < 0) {
+      alert("DEPOSIT CAN'T BE NEGATIVE");
+    } else if (!ctx.balance) {
+      ctx.balance = newDeposit;
+    } else {
+      ctx.balance = ctx.balance + newDeposit;
+    }
+    // if there's no balance
+    // set the balance to newDeposit
+
+    // if there is a balance
+    // add the newDeposit to the existing balance
+
+    // ctx.users.push({ deposit, balance: 100 });
     setShow(false);
   }
 
   function clearForm() {
-    setDeposit("");
+    setDepositAmount("");
     setShow(true);
   }
 
@@ -30,7 +44,7 @@ function Deposit() {
       <Card
         bgcolor="success"
         header="DEPOSIT"
-        title="Balance:"
+        title={`Balance: ${ctx.balance || 0}`}
         status={status}
         body={
           show ? (
@@ -38,18 +52,19 @@ function Deposit() {
               DEPOSIT AMOUNT
               <br />
               <input
-                type="input"
+                type="number"
                 className="form-control"
                 id="deposit"
                 placeholder="DEPOSIT AMOUNT"
-                value={deposit}
-                onChange={(e) => setDeposit(e.currentTarget.value)}
+                value={depositAmount}
+                onChange={(e) => setDepositAmount(e.currentTarget.value)}
               />
               <br />
               <button
                 type="submit"
                 className="btn btn-light"
-                onClick={handleCreate}
+                onClick={handleDeposit}
+                disabled={!depositAmount}
               >
                 DEPOSIT
               </button>

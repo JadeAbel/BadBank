@@ -4,19 +4,24 @@ function NavBar() {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light bg-success">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand customTooltip" href="#">
+              <span className="tooltiptext">HOME TAB</span>
               BAD BANK
             </a>
-            <a className="navbar-brand" href="#CreateAccount">
+            <a className="navbar-brand customTooltip" href="#CreateAccount">
+              <span className="tooltiptext">NEW ACCNT</span>
               CREATE ACCOUNT
             </a>
-            <a className="navbar-brand" href="#/deposit">
+            <a className="navbar-brand customTooltip" href="#/deposit">
+              <span className="tooltiptext">(+)MONEY</span>
               DEPOSIT
             </a>
-            <a className="navbar-brand" href="#/withdraw">
+            <a className="navbar-brand customTooltip" href="#/withdraw">
+              <span className="tooltiptext">(-)MONEY</span>
               WITHDRAW
             </a>
-            <a className="navbar-brand" href="#alldata">
+            <a className="navbar-brand customTooltip" href="#alldata">
+              <span className="tooltiptext">ACCNT DTS</span>
               ALL DATA
             </a>
           </div>

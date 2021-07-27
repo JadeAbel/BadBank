@@ -9,15 +9,16 @@
   );
 }
 */
+
 function AllData() {
+  const ctx = React.useContext(UserContext);
+  const names = ["Josh", "Jade", "k-dog", "scibbs"];
   return (
     <div className="d-flex p-4">
       <Card
         bgcolor="success"
         txtcolor="white"
-        header="BAD BANK LANDING PAGE"
-        title="WELCOME TO THE BANK"
-        text="'Here, you can pretend to be a trillionaire.'"
+        header="ALL DATA"
         body={
           <div>
             <ul className="list-group list-group-horizontal">
@@ -26,17 +27,22 @@ function AllData() {
               <li className="list-group-item">Password</li>
             </ul>
 
-            <ul className="list-group list-group-horizontal-sm">
-              <li className="list-group-item"> </li>
-              <li className="list-group-item"> </li>
-              <li className="list-group-item"> </li>
-            </ul>
+            {ctx &&
+              ctx.users.map((user) => {
+                return (
+                  <DataRow
+                    name={user.name}
+                    email={user.email}
+                    password={user.password}
+                  />
+                );
+              })}
 
-            <ul className="list-group list-group-horizontal-sm">
-              <li className="list-group-item"> </li>
-              <li className="list-group-item"> </li>
-              <li className="list-group-item"> </li>
-            </ul>
+            {/* 
+            {cxt.users.map((user) => {
+              return <DataRow name={user.name} />;
+            })}
+             */}
           </div>
         }
       />
