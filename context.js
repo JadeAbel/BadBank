@@ -32,4 +32,5 @@ const DataRow = (props) => {
     </ul>
   );
 };
+
 //these components are from the ReactRouter library that we loaded on our HTML
