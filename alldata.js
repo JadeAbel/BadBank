@@ -9,7 +9,7 @@
   );
 }
 */
-const ctx = React.useContext(UserContext);
+
 function AllData() {
   const ctx = React.useContext(UserContext);
   const names = ["Josh", "Jade", "k-dog", "scibbs"];
