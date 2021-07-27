@@ -50,7 +50,7 @@ function Deposit() {
               DEPOSIT AMOUNT
               <br />
               <input
-                type="input"
+                type="number"
                 className="form-control"
                 id="deposit"
                 placeholder="DEPOSIT AMOUNT"
