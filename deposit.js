@@ -17,7 +17,9 @@ function Deposit() {
     console.log("something", depositAmount);
     if (!validate(depositAmount, "deposit")) return;
     const newDeposit = parseInt(depositAmount, 10);
-    if (!ctx.balance) {
+    if (newDeposit < 0) {
+      alert("DEPOSIT CAN'T BE NEGATIVE");
+    } else if (!ctx.balance) {
       ctx.balance = newDeposit;
     } else {
       ctx.balance = ctx.balance + newDeposit;
@@ -62,6 +64,7 @@ function Deposit() {
                 type="submit"
                 className="btn btn-light"
                 onClick={handleDeposit}
+                disabled={!depositAmount}
               >
                 DEPOSIT
               </button>
