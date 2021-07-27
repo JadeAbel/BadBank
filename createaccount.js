@@ -8,7 +8,16 @@ function CreateAccount() {
 
   function validate(field, label) {
     if (!field) {
-      setStatus("Error: " + label);
+      alert("Error: " + label + " field is blank");
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    }
+    return true;
+  }
+
+  function validatePassword(password) {
+    if (password.length < 8) {
+      alert("Error: Password must be at least 8 characters.");
       setTimeout(() => setStatus(""), 3000);
       return false;
     }
@@ -20,6 +29,7 @@ function CreateAccount() {
     if (!validate(name, "name")) return;
     if (!validate(email, "email")) return;
     if (!validate(password, "password")) return;
+    if (!validatePassword(password, "password")) return;
     ctx.users.push({ name, email, password, balance: 100 });
     setShow(false);
   }
@@ -77,6 +87,7 @@ function CreateAccount() {
                 type="submit"
                 className="btn btn-light"
                 onClick={handleCreate}
+                disabled={!(name && email && password)}
               >
                 SUBMIT
               </button>
