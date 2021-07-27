@@ -54,7 +54,7 @@ function CreateAccount() {
               EMAIL ADDRESS
               <br />
               <input
-                type="input"
+                type="email"
                 className="form-control"
                 id="email"
                 placeholder="ENTER EMAIL"
@@ -65,7 +65,7 @@ function CreateAccount() {
               PASSWORD
               <br />
               <input
-                type="password"
+                type="input"
                 className="form-control"
                 id="password"
                 placeholder="ENTER PASSWORD"
